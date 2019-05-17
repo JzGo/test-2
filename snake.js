@@ -66,7 +66,7 @@ var advanceGame = function() {
         CHUNK.flashMessage("Oops, you ate yourself!")
     }
     if (CHUNK.detectCollisionBetween([apple], snake)) {
-        snake = growSnake(snake);
+        snake = growSnake(newSnake);
         apple = CHUNK.randomLocation();
     }
     if (CHUNK.detectCollisionBetween(snake, CHUNK.gameBoundaries())) {
@@ -81,6 +81,5 @@ var advanceGame = function() {
 // setup start position (and length) of snake
 var apple = { top: 8, left: 10 }
 var snake = [{ top: 1, left: 0, direction: 'down'}, { top: 0, left: 0, direction: 'down' }]
-CHUNK.executeNTimesPerSecond(advanceGame, 2)
+CHUNK.executeNTimesPerSecond(advanceGame, 4)
 CHUNK.onArrowKey(changeDirection)
-console.log(segmentFurtherForwardThan(0, snake))
